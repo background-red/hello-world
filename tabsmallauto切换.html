@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>tab效果</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+        
+        .news {
+            width: 298px;
+            border: 1px solid #eee;
+            margin: 20px auto;
+            height: 98px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tab {
+            height: 27px;
+        }
+        
+        .tab-wrap {
+            height: 27px;
+            width: 301px;
+            position: absolute;
+            left: -1px;
+            background: #ccc;
+            overflow: hidden;
+        }
+        
+        .tab-wrap li {
+            float: left;
+            text-align: center;
+        }
+        
+        .tab-wrap li a {
+            display: block;
+            width: 58px;
+            height: 26px;
+            line-height: 26px;
+            border-bottom: 1px solid #eee;
+            padding: 0 1px;
+            color: #000;
+        }
+        
+        .tab-wrap .mouseover {
+            background: #fff;
+            color: orange;
+            font-weight: bold;
+            border-bottom: 1px solid #fff;
+            border-right: 1px solid #eee;
+            border-left: 1px solid #eee;
+            padding: 0;
+        }
+        
+        .content {
+            width: 100%;
+            height: 71px;
+            overflow: hidden;
+        }
+        
+        .content .mod {
+            display: none;
+        }
+        
+        .content div:first-child {
+            display: block;
+        }
+        
+        .mod ul {
+            overflow: hidden;
+        }
+        
+        .mod li {
+            float: left;
+            font-size: 14px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="news" id="news">
+        <div class="tab" id="tab">
+            <ul class="tab-wrap">
+                <li><a href="#">公告</a></li>
+                <li><a href="#">规则</a></li>
+                <li><a href="#">论坛</a></li>
+                <li><a href="#">安全</a></li>
+                <li><a href="#">公益</a></li>
+            </ul>
+        </div>
+        <div class="content" id="content">
+            <div class="mod">
+                <ul>
+                    <li>275万购昌平邻铁三居</li>
+                    <li>总价20万买一居</li>
+                    <li>200万内购五环三居</li>
+                    <li>北京首现零首付楼盘</li>
+                </ul>
+            </div>
+            <div class="mod">
+                <ul>
+                    <li>新中式的酷色温情</li>
+                    <li>总价20万买一居</li>
+                    <li>200万内购五环三居</li>
+                    <li>北京首现零首付楼盘</li>
+                </ul>
+            </div>
+            <div class="mod">
+                <ul>
+                    <li>通州豪华3居260万</li>
+                    <li>总价20万买一居</li>
+                    <li>200万内购五环三居</li>
+                    <li>北京首现零首付楼盘</li>
+                </ul>
+            </div>
+            <div class="mod">
+                <ul>
+                    <li>经典清新简欧爱家</li>
+                    <li>总价20万买一居</li>
+                    <li>200万内购五环三居</li>
+                    <li>北京首现零首付楼盘</li>
+                </ul>
+            </div>
+            <div class="mod">
+                <ul>
+                    <li>二环稀缺2居250w甩</li>
+                    <li>总价20万买一居</li>
+                    <li>200万内购五环三居</li>
+                    <li>北京首现零首付楼盘</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        function start() {
+            var tabs = $("tab").getElementsByTagName('a'),
+                contents = $('content').getElementsByTagName('div'),
+                news = $('news'),
+                timer = null,
+                mark = 0;
+            //改变状态
+            function change(index) {
+                for (var j = 0; j < tabs.length; j++) {
+                    tabs[j].className = '';
+                    contents[j].style.display = 'none';
+                }
+                tabs[index].className = "mouseover";
+                contents[index].style.display = 'block';
+                mark = index;
+            }
+            //自动轮播函数
+            function play() {
+                mark++;
+                if (mark == tabs.length) {
+                    mark = 0;
+                }
+                change(mark);
+            }
+            //添加事件，轮播开始
+            timer = setInterval(play, 2000);
+            news.addEventListener('mouseover', function() {
+                if (timer) {
+                    clearInterval(timer);
+                }
+                timer = null;
+            }, false);
+            news.addEventListener('mouseout', function() {
+                if (timer) {
+                    clearInterval(timer);
+                }
+                timer = setInterval(play, 2000);
+            }, false);
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].index = i;
+                tabs[i].addEventListener('mouseover', function() {
+                    change(this.index);
+                }, false);
+            }
+        }
+        start();
+    </script>
+</body>
+
+
+</html>
