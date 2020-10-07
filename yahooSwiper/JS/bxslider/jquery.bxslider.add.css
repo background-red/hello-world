@@ -1,0 +1,53 @@
+/* slide-area
+----------------------------------------------- */
+#slide-area {
+   height: 500px;
+}
+#Detail-slider-wrap {
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+        left: 0;
+}
+#Detail-slider {
+    width: 1140px;
+    margin: 0 auto;
+    position: relative;
+
+}
+#Detail-slider .bx-wrapper .bx-pager {
+    bottom: 20px;
+}
+#Detail-slider .bx-wrapper .bx-controls-direction a {
+    width: 20px;
+    height: 60px;
+    margin-top: -30px;
+}
+.bx-viewport {
+	overflow: visible!important;
+}
+#Detail-slider .bx-wrapper .bx-prev {
+    left: 40px;
+    background: url(https://shopping.geocities.jp/goldmen/js/img/icon/detail_arrow_prev.png) no-repeat center center;
+}
+#Detail-slider .bx-wrapper .bx-next {
+    right: 40px;
+    background: url(https://shopping.geocities.jp/goldmen/js/img/icon/detail_arrow_next.png) no-repeat center center;
+}
+#Detail-slider .bx-wrapper .bx-pager.bx-default-pager a {
+    background: url(https://shopping.geocities.jp/goldmen/js/img/icon/detail_slide_ico.png) no-repeat center center;
+    text-indent: -9999px;
+    display: block;
+    height: 17px;
+    width: 17px;
+    outline: 0;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    margin: -20px 7px 0 7px;
+}
+
+#Detail-slider .bx-wrapper .bx-pager.bx-default-pager a:hover,
+#Detail-slider .bx-wrapper .bx-pager.bx-default-pager a.active {
+    background: url(https://shopping.geocities.jp/goldmen/js/img/icon/detail_slide_ico_active.png) no-repeat center center;
+}

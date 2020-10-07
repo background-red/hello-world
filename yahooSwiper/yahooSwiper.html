@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- slider -->
+    <link rel="stylesheet" href="./JS/bxslider/jquery.bxslider.css" type="text/css" media="all">
+    <link rel="stylesheet" href="./JS/bxslider/jquery.bxslider.add.css" type="text/css" media="all">
+
+    <style>
+        li {
+            list-style: none;
+        }
+        /* slide-area
+----------------------------------------------- */
+        
+        #slide-area {
+            float: left;
+            height: 460px;
+            width: 100%;
+        }
+        
+        #Detail-slider-wrap {
+            position: absolute;
+            width: 100%;
+            overflow: hidden;
+            left: 0;
+            height: 454px;
+            margin-top: -40px;
+        }
+        
+        #Detail-slider {
+            width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        #Detail-slider .bx-wrapper .bx-pager {
+            bottom: 10px;
+        }
+        
+        #Detail-slider .bx-wrapper .bx-controls-direction a {
+            width: 20px;
+            height: 60px;
+            margin-top: -30px;
+        }
+        
+        #Detail-slider .bx-wrapper .bx-prev {
+            left: 40px;
+            background: url(./img/icon/detail_arrow_prev.png) no-repeat center center;
+        }
+        
+        #Detail-slider .bx-wrapper .bx-next {
+            right: 40px;
+            background: url(./img/icon/detail_arrow_next.png) no-repeat center center;
+        }
+        
+        #Detail-slider .bx-wrapper .bx-pager.bx-default-pager a {
+            background: url(./img/icon/detail_slide_ico.png) no-repeat center center;
+            text-indent: -9999px;
+            display: block;
+            height: 17px;
+            width: 17px;
+            outline: 0;
+            -moz-border-radius: 7px;
+            -webkit-border-radius: 7px;
+            border-radius: 7px;
+            margin: -20px 7px 0 7px;
+        }
+        
+        #Detail-slider .bx-wrapper .bx-pager.bx-default-pager a:hover,
+        #Detail-slider .bx-wrapper .bx-pager.bx-default-pager a.active {
+            background: url(./img/icon/detail_slide_ico_active.png) no-repeat center center;
+        }
+    </style>
+</head>
+
+<body id="home">
+    <!-- slide -->
+    <div id="slide-area">
+        <div id="Detail-slider-wrap">
+            <div class="bx-controls-direction">
+                <div id="Detail-slider">
+                    <ul class="detail_bxslider">
+                        <li>
+                            <img src="./img/top_img01.jpg">
+                        </li>
+                        <li>
+                            <a href="https://editor2.store.yahoo.co.jp/RT/cloth-o/PageEdit/makePreview?page_key=ck0002&device=pc&c=eh1Ttz1AEK3ZsV0z8gZsRg--&new_design=0"> <img src="./img/top_img02.jpg"></a>
+                        </li>
+                        <li>
+                            <img src="./img/top_img03.jpg">
+                        </li>
+                        <li>
+                            <img src="./img/top_img04.jpg">
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./JS/1.10.2/jquery.min.js"></script>
+    <script src="./JS/bxslider/jquery.bxslider.min.js"></script>
+    <script type="text/javascript">
+        var $1102 = $.noConflict(true);
+        (function($) {
+            $(document).ready(function() {
+                $('.detail_bxslider').bxSlider({
+                    auto: true,
+                    pause: 3000,
+                    speed: 900,
+                    pager: true,
+                    responsive: true,
+                    startSlide: 2,
+                    displaySlideQty: 1,
+                    moveSlideQty: 1,
+                    prevText: '<',
+                    nextText: '>'
+                });
+            });
+        })($1102);
+    </script>
+    <!--// slide-->
+    </div>
+</body>
+
+</html>
